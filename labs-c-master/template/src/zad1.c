@@ -4,7 +4,12 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-char* replaceFnc(char *str, char sep)
+//Miał być link z pliku strings.h ale linker mnie zawodzi :/
+
+char* toLower(char* s);
+char* toUpper(char* s);
+
+char* replaceFnc(char *str, char sep, char *up_or_down)
 {
     int16_t offset = 0;
     char* ptr = malloc(strlen(str));
@@ -34,6 +39,10 @@ char* replaceFnc(char *str, char sep)
         }
     }
     ptr = realloc(ptr, strlen(ptr));
+    if(up_or_down=="low")
+        ptr = toUpper(ptr);
+    else
+        ptr = toLower(ptr);
     return ptr;
 }
 
@@ -41,5 +50,20 @@ int main(void)
 {
     char str[] = "@Hello!World$$123)";
     char sep = '-';
-    printf("%s", replaceFnc(str, sep));
+    printf("%s", replaceFnc(str, sep, "up"));
+}
+
+char* toLower(char* s)
+{
+    char* ptr = malloc(strlen(s));
+    for(int i=0; i<strlen(s); i++)
+        ptr[i] = tolower(s[i]);
+    return ptr;
+}
+
+char* toUpper(char* s) {
+    char* ptr = malloc(strlen(s));
+    for(int i=0; i<strlen(s); i++)
+        ptr[i] = toupper(s[i]);
+    return ptr;
 }
