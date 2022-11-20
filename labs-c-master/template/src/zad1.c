@@ -4,10 +4,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-char* toLower(char* s);
-char* toUpper(char* s);
-
-char* replaceFnc(char *str, char sep, char *up_or_low)
+char* replaceFnc(char *str, char sep)
 {
     int16_t offset = 0;
     char* ptr = malloc(strlen(str));
@@ -44,5 +41,5 @@ int main(void)
 {
     char str[] = "@Hello!World$$123)";
     char sep = '-';
-    printf("%s", replaceFnc(str, sep, "up"));
+    printf("%s", replaceFnc(str, sep));
 }
