@@ -1,0 +1,41 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "debug",
+      "command": "gcc",
+      "args": [
+        "-g",
+        "${workspaceRoot}/src/main.c",
+        "-o",
+        "${workspaceRoot}/main.exe",
+        "-lWs2_32",
+        "-lwsock32"
+      ],
+      "options": {
+        "cwd": "C:/WinGW/mingw64/bin"
+      }
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: gcc.exe kompiluj aktywny plik",
+      "command": "C:/MinGW/bin/gcc.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "C:/MinGW/bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "Zadanie wygenerowane przez debuger."
+    }
+  ],
+  "version": "2.0.0"
+}
